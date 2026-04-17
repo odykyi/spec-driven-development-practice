@@ -1,0 +1,19 @@
+id: basics/install-openspec
+track: basics
+name: Install OpenSpec
+difficulty: easy
+prerequisites: []
+validationRules:
+  - requirements-present
+  - requirements-have-scenarios
+  - scenarios-have-when-then
+  - min-scenarios
+minScenarios: 3
+requiredSections:
+  - Requirements
+hints:
+  - "Describe the npm install command as a requirement"
+  - "Include a scenario for verifying the version"
+  - "Include a scenario for viewing help"
+  - "Think about error cases (installation fails)"
+examples: []
