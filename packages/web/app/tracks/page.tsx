@@ -6,7 +6,7 @@ const tracks = [
     name: 'Basics',
     description: 'Learn the fundamentals of specification writing',
     difficulty: 'Beginner',
-    exercises: 2,
+    exercises: 3,
     color: 'bg-green-100 text-green-800',
   },
   {
@@ -20,9 +20,9 @@ const tracks = [
   {
     id: 'advanced',
     name: 'Advanced',
-    description: 'Advanced topics in specification writing',
+    description: 'Complex multi-step flows and real-world scenarios',
     difficulty: 'Advanced',
-    exercises: 0,
+    exercises: 1,
     color: 'bg-red-100 text-red-800',
   },
 ];

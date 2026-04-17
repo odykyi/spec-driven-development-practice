@@ -1,18 +1,52 @@
 import Link from 'next/link';
+import * as fs from 'fs/promises';
+import * as path from 'path';
+import yaml from 'yaml';
 
-const exercisesByTrack: Record<string, Array<{ id: string; name: string; difficulty: string }>> = {
-  basics: [
-    { id: 'basics/hello-world', name: 'Hello World', difficulty: 'easy' },
-    { id: 'basics/user-story', name: 'User Story', difficulty: 'easy' },
-  ],
-  patterns: [
-    { id: 'patterns/state-machine', name: 'State Machine', difficulty: 'medium' },
-  ],
-  advanced: [],
-};
+interface Exercise {
+  id: string;
+  name: string;
+  difficulty: string;
+}
 
-export default function TrackPage({ params }: { params: { id: string } }) {
-  const exercises = exercisesByTrack[params.id] || [];
+async function getTrackExercises(trackId: string): Promise<Exercise[]> {
+  try {
+    const trackPath = path.join(process.cwd(), '..', '..', 'tracks', `${trackId}.yml`);
+    const content = await fs.readFile(trackPath, 'utf-8');
+    const track = yaml.parse(content);
+    
+    const exercises: Exercise[] = [];
+    for (const exerciseId of track.exercises || []) {
+      try {
+        const configPath = path.join(
+          process.cwd(), 
+          '..', 
+          '..', 
+          'exercises', 
+          exerciseId, 
+          '.meta', 
+          'config.yml'
+        );
+        const configContent = await fs.readFile(configPath, 'utf-8');
+        const config = yaml.parse(configContent);
+        exercises.push({
+          id: exerciseId,
+          name: config.name,
+          difficulty: config.difficulty,
+        });
+      } catch {
+        // Skip exercises that can't be loaded
+      }
+    }
+    
+    return exercises;
+  } catch {
+    return [];
+  }
+}
+
+export default async function TrackPage({ params }: { params: { id: string } }) {
+  const exercises = await getTrackExercises(params.id);
 
   return (
     <main className="min-h-screen bg-slate-50">

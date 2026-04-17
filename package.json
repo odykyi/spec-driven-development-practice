@@ -9,7 +9,8 @@
     "lint": "pnpm -r lint",
     "format": "prettier --write .",
     "dev": "pnpm --filter @sdd-training/web dev",
-    "cli": "pnpm --filter @sdd-training/cli start"
+    "cli": "pnpm --filter @sdd-training/cli start",
+    "install-openspec": "node install-openspec.js"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

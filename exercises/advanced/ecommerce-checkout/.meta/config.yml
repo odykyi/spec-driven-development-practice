@@ -1,0 +1,32 @@
+id: advanced/ecommerce-checkout
+track: advanced
+name: E-Commerce Checkout Flow
+difficulty: hard
+prerequisites:
+  - patterns/state-machine
+  - basics/user-story
+validationRules:
+  - requirements-present
+  - requirements-have-scenarios
+  - scenarios-have-when-then
+  - min-scenarios
+minScenarios: 15
+requiredSections:
+  - Requirements
+hints:
+  - "Break the 20 steps into logical phases (Discovery, Basket, Auth, Shipping, Payment, Review, Completion)"
+  - "Each phase should be a separate requirement with multiple scenarios"
+  - "Include specific data validation (address format, card number validation, etc.)"
+  - "Consider what happens when user goes back to previous steps"
+  - "Document business rules like minimum order value, shipping costs"
+  - "Include error scenarios: out of stock, payment declined, invalid address"
+  - "Consider session timeout handling"
+  - "Don't forget about mobile-specific interactions"
+examples:
+  - "Phase 1: Product Discovery - Browse, View Details, Select Options"
+  - "Phase 2: Basket Management - Add, View, Update"
+  - "Phase 3: Authentication - Login/Guest choice"
+  - "Phase 4: Shipping - Address entry and validation"
+  - "Phase 5: Payment - Billing, card entry, validation"
+  - "Phase 6: Review - Order summary, promo codes"
+  - "Phase 7: Completion - Place order, confirmation"

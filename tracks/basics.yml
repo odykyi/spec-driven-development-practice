@@ -2,9 +2,11 @@ name: Basics
 description: Learn the fundamentals of specification writing
 difficulty: beginner
 exercises:
+  - basics/install-openspec
   - basics/hello-world
   - basics/user-story
 concepts:
+  - OpenSpec Installation
   - Basic Structure
   - Requirements
   - Scenarios

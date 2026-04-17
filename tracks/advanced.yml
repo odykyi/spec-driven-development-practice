@@ -1,9 +1,12 @@
 name: Advanced
 description: Advanced topics in specification writing
 difficulty: advanced
-exercises: []
+exercises:
+  - advanced/ecommerce-checkout
 concepts:
-  - Formal Methods
-  - Invariant Documentation
-  - Security Specifications
-  - Performance Requirements
+  - Complex Multi-Step Flows
+  - Error Handling
+  - Business Rules
+  - State Management
+  - Data Validation
+  - Security Requirements
