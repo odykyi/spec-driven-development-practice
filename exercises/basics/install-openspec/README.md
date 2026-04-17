@@ -45,8 +45,24 @@ Your specification for this exercise should describe:
 
 ## Definition of Done
 
+✅ **Written in `spec.md` file** (in this exercise folder)  
 ✅ **At least 3 scenarios** (install, verify, help)  
 ✅ **Installation process documented** with npm command  
 ✅ **Verification steps included** (--version output)  
 ✅ **Available commands listed** (--help output)  
 ✅ **Validates successfully** with `sdd test`
+
+## Where to Write
+
+Edit the file **`spec.md`** in your exercise directory.
+
+Run this to open it:
+```bash
+# On macOS:
+open spec.md
+
+# Or use any editor:
+nano spec.md
+vim spec.md
+code spec.md  # VS Code
+```

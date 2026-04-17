@@ -58,9 +58,25 @@ The system SHALL allow users to create accounts.
 
 ## Definition of Done
 
+✅ **Written in `spec.md` file** (in this exercise folder)  
 ✅ **At least 10 scenarios** covering the 12-step flow  
 ✅ **All 12 steps documented** with requirements  
 ✅ **Security requirements specified** (password rules, lockout)  
 ✅ **Session management defined** (creation, validation, expiry)  
 ✅ **Error scenarios included** (weak password, invalid credentials)  
 ✅ **Validates successfully** with `sdd test`
+
+## Where to Write
+
+Edit the file **`spec.md`** in your exercise directory.
+
+Run this to open it:
+```bash
+# On macOS:
+open spec.md
+
+# Or use any editor:
+nano spec.md
+vim spec.md
+code spec.md  # VS Code
+```

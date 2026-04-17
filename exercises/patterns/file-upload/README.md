@@ -54,6 +54,7 @@ The system SHALL validate uploaded files before processing.
 
 ## Definition of Done
 
+✅ **Written in `spec.md` file** (in this exercise folder)  
 ✅ **At least 8 scenarios** covering validation, progress, errors  
 ✅ **File type validation** (MIME types)  
 ✅ **Size limits enforced** (100MB max)  
@@ -61,3 +62,18 @@ The system SHALL validate uploaded files before processing.
 ✅ **Virus scanning** before storage  
 ✅ **Storage quota** per user (1GB)  
 ✅ **Validates successfully** with `sdd test`
+
+## Where to Write
+
+Edit the file **`spec.md`** in your exercise directory.
+
+Run this to open it:
+```bash
+# On macOS:
+open spec.md
+
+# Or use any editor:
+nano spec.md
+vim spec.md
+code spec.md  # VS Code
+```

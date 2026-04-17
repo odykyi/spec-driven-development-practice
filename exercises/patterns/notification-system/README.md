@@ -51,6 +51,7 @@ The system SHALL route notifications based on user preferences.
 
 ## Definition of Done
 
+✅ **Written in `spec.md` file** (in this exercise folder)  
 ✅ **At least 8 scenarios** covering different channels and priorities  
 ✅ **All 4 channels specified** (Email, Push, SMS, In-App)  
 ✅ **Preference management** (enable/disable per channel)  
@@ -58,3 +59,18 @@ The system SHALL route notifications based on user preferences.
 ✅ **Digest frequency** options (immediate, hourly, daily, weekly)  
 ✅ **Priority-based routing** (critical bypasses quiet hours)  
 ✅ **Validates successfully** with `sdd test`
+
+## Where to Write
+
+Edit the file **`spec.md`** in your exercise directory.
+
+Run this to open it:
+```bash
+# On macOS:
+open spec.md
+
+# Or use any editor:
+nano spec.md
+vim spec.md
+code spec.md  # VS Code
+```

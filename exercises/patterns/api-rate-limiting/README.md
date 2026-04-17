@@ -51,6 +51,7 @@ The API SHALL enforce rate limits based on user tier.
 
 ## Definition of Done
 
+✅ **Written in `spec.md` file** (in this exercise folder)  
 ✅ **At least 6 scenarios** covering different user tiers and limits  
 ✅ **Request counting mechanism specified**  
 ✅ **Time windows defined** (per sec/min/hour/day)  
@@ -58,3 +59,18 @@ The API SHALL enforce rate limits based on user tier.
 ✅ **429 behavior defined** when limits exceeded  
 ✅ **Burst handling specified** (20 req/sec)  
 ✅ **Validates successfully** with `sdd test`
+
+## Where to Write
+
+Edit the file **`spec.md`** in your exercise directory.
+
+Run this to open it:
+```bash
+# On macOS:
+open spec.md
+
+# Or use any editor:
+nano spec.md
+vim spec.md
+code spec.md  # VS Code
+```

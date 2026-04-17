@@ -59,6 +59,7 @@ The system SHALL perform schema changes without downtime.
 
 ## Definition of Done
 
+✅ **Written in `spec.md` file** (in this exercise folder)  
 ✅ **At least 10 scenarios** covering different migration types  
 ✅ **All 4 migration types** (Schema, Data, Constraint, Index)  
 ✅ **Backward compatibility** required for all changes  
@@ -67,3 +68,18 @@ The system SHALL perform schema changes without downtime.
 ✅ **Safety checks** (dry-run, backups)  
 ✅ **Data integrity** verification before/after  
 ✅ **Validates successfully** with `sdd test`
+
+## Where to Write
+
+Edit the file **`spec.md`** in your exercise directory.
+
+Run this to open it:
+```bash
+# On macOS:
+open spec.md
+
+# Or use any editor:
+nano spec.md
+vim spec.md
+code spec.md  # VS Code
+```

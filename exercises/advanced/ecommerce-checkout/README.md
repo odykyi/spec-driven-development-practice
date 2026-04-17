@@ -108,11 +108,28 @@ The system SHALL allow users to browse and select products.
 - **AND** provides "Notify Me" option
 ```
 
-## Success Criteria
+## Success Criteria / Definition of Done
 
-✅ All 20 steps documented with requirements  
-✅ At least 10 scenarios covering the flow  
-✅ 5+ error scenarios defined  
-✅ Business rules explicitly stated  
-✅ Data validation requirements included  
-✅ Security considerations documented  
+✅ **Written in `spec.md` file** (in this exercise folder)  
+✅ **All 20 steps documented** with requirements  
+✅ **At least 10 scenarios** covering the flow  
+✅ **5+ error scenarios** defined  
+✅ **Business rules explicitly stated**  
+✅ **Data validation requirements** included  
+✅ **Security considerations** documented  
+✅ **Validates successfully** with `sdd test`
+
+## Where to Write
+
+Edit the file **`spec.md`** in your exercise directory.
+
+Run this to open it:
+```bash
+# On macOS:
+open spec.md
+
+# Or use any editor:
+nano spec.md
+vim spec.md
+code spec.md  # VS Code
+```  

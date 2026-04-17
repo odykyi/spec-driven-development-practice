@@ -30,11 +30,27 @@ Your specification should:
 
 ## Definition of Done
 
+✅ **Written in `spec.md` file** (in this exercise folder)  
 ✅ **At least 3 scenarios** (success, out-of-stock, multiple quantities)  
 ✅ **Uses GIVEN-WHEN-THEN format** for all scenarios  
 ✅ **User story is clearly defined** from user's perspective  
 ✅ **Business rules documented**  
 ✅ **Validates successfully** with `sdd test`
+
+## Where to Write
+
+Edit the file **`spec.md`** in your exercise directory.
+
+Run this to open it:
+```bash
+# On macOS:
+open spec.md
+
+# Or use any editor:
+nano spec.md
+vim spec.md
+code spec.md  # VS Code
+```
 
 ## Example Structure
 

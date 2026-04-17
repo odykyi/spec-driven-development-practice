@@ -42,9 +42,25 @@ Your specification should:
 
 ## Definition of Done
 
+✅ **Written in `spec.md` file** (in this exercise folder)  
 ✅ **At least 4 scenarios** (normal, emergency, power failure, manual)  
 ✅ **All 3 states defined** (Red, Green, Yellow)  
 ✅ **State transitions documented** with triggers  
 ✅ **Timing requirements specified** for each state  
 ✅ **Invariants documented** (only one light active)  
 ✅ **Validates successfully** with `sdd test`
+
+## Where to Write
+
+Edit the file **`spec.md`** in your exercise directory.
+
+Run this to open it:
+```bash
+# On macOS:
+open spec.md
+
+# Or use any editor:
+nano spec.md
+vim spec.md
+code spec.md  # VS Code
+```
