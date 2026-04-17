@@ -1,0 +1,22 @@
+id: patterns/user-authentication
+track: patterns
+name: User Authentication Flow
+difficulty: medium
+prerequisites:
+  - basics/hello-world
+  - basics/user-story
+validationRules:
+  - requirements-present
+  - requirements-have-scenarios
+  - scenarios-have-when-then
+  - min-scenarios
+minScenarios: 10
+requiredSections:
+  - Requirements
+hints:
+  - "Cover all 12 steps of the authentication flow"
+  - "Include security requirements explicitly"
+  - "Handle all error cases (weak password, invalid email, etc.)"
+  - "Document session management behavior"
+  - "Consider rate limiting on login attempts"
+examples: []

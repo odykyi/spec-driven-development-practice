@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { ExerciseLoader } from '../exercise-loader.js';
 import * as fs from 'fs/promises';
 import * as path from 'path';

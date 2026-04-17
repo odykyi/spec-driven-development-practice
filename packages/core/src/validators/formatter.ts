@@ -1,4 +1,6 @@
-import { ValidationResult } from './types/index.js';
+import { ValidationResult, CheckResult } from '../types/index.js';
+
+type Status = 'pass' | 'fail' | 'error';
 
 export class OutputFormatter {
   toJSON(result: ValidationResult): string {
@@ -6,7 +8,7 @@ export class OutputFormatter {
       {
         status: result.status,
         summary: result.summary,
-        checks: result.checks.map(check => ({
+        checks: result.checks.map((check: CheckResult) => ({
           id: check.id,
           name: check.name,
           status: check.status,
@@ -24,13 +26,13 @@ export class OutputFormatter {
     const lines: string[] = [];
 
     // Status line with emoji
-    const statusEmoji = {
+    const statusEmoji: Record<Status, string> = {
       pass: '✅',
       fail: '❌',
       error: '⚠️',
     };
 
-    lines.push(`${statusEmoji[result.status]} Validation ${result.status.toUpperCase()}`);
+    lines.push(`${statusEmoji[result.status as Status]} Validation ${result.status.toUpperCase()}`);
     lines.push('');
 
     // Summary
@@ -47,33 +49,33 @@ export class OutputFormatter {
     // Individual checks
     lines.push('Checks:');
     for (const check of result.checks) {
-      const emoji = {
+      const emoji: Record<Status, string> = {
         pass: '✅',
         fail: '❌',
         error: '⚠️',
       };
-      lines.push(`  ${emoji[check.status]} ${check.name}: ${check.message}`);
+      lines.push(`  ${emoji[check.status as Status]} ${check.name}: ${check.message}`);
     }
 
     return lines.join('\n');
   }
 
   toCompact(result: ValidationResult): string {
-    const statusEmoji = {
+    const statusEmoji: Record<Status, string> = {
       pass: '✅',
       fail: '❌',
       error: '⚠️',
     };
 
-    const failedChecks = result.checks.filter(c => c.status !== 'pass');
+    const failedChecks = result.checks.filter((c: CheckResult) => c.status !== 'pass');
     
     if (failedChecks.length === 0) {
       return `${statusEmoji.pass} All ${result.summary.total} checks passed`;
     }
 
     return [
-      `${statusEmoji[result.status]} ${result.summary.passed}/${result.summary.total} checks passed`,
-      ...failedChecks.map(c => `  ${statusEmoji[c.status]} ${c.name}: ${c.message}`),
+      `${statusEmoji[result.status as Status]} ${result.summary.passed}/${result.summary.total} checks passed`,
+      ...failedChecks.map((c: CheckResult) => `  ${statusEmoji[c.status as Status]} ${c.name}: ${c.message}`),
     ].join('\n');
   }
 }

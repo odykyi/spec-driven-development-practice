@@ -74,6 +74,15 @@ export interface ValidationCache {
   clear: () => void;
 }
 
+export interface Track {
+  id: string;
+  name: string;
+  description: string;
+  difficulty: 'beginner' | 'intermediate' | 'advanced';
+  exercises: string[];
+  concepts?: string[];
+}
+
 export interface ParsedNode {
   type: string;
   content?: string;

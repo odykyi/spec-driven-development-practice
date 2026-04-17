@@ -10,7 +10,7 @@ import {
   createMemoryCache,
 } from '@sdd-training/core';
 import { getConfig } from '../config/config.js';
-import { getDatabase } from '../database/sqlite.js';
+import { getDatabase, saveSubmission, completeExercise } from '../database/sqlite.js';
 
 interface SubmitOptions {
   message?: string;
@@ -47,6 +47,8 @@ export async function submitCommand(options: SubmitOptions): Promise<void> {
     }
 
     // Run validation if enabled (default)
+    let validationResult: ReturnType<ValidationEngine['validate']> | undefined;
+    
     if (options.validate !== false) {
       spinner.text = 'Running validation...';
       
@@ -54,22 +56,22 @@ export async function submitCommand(options: SubmitOptions): Promise<void> {
       const spec = parser.parse(specContent);
       
       const engine = new ValidationEngine(createMemoryCache());
-      const result = engine.validate(spec, {
+      validationResult = engine.validate(spec, {
         exerciseConfig: exerciseConfig.config,
         cache: createMemoryCache(),
       });
 
-      if (result.status === 'fail' || result.status === 'error') {
+      if (validationResult.status === 'fail' || validationResult.status === 'error') {
         spinner.fail('Validation failed');
         const formatter = new OutputFormatter();
-        console.log(formatter.toText(result));
+        console.log(formatter.toText(validationResult));
         process.exit(1);
       }
     }
 
     // Save to local database
     const db = await getDatabase();
-    await db.saveSubmission({
+    await saveSubmission({
       exerciseId,
       specification: specContent,
       passed: true,
@@ -78,14 +80,14 @@ export async function submitCommand(options: SubmitOptions): Promise<void> {
     });
 
     // Mark exercise as completed
-    await db.completeExercise(exerciseId);
+    await completeExercise(exerciseId);
 
     spinner.succeed(chalk.green('Solution submitted successfully!'));
     
-    if (result?.status === 'pass') {
+    if (validationResult?.status === 'pass') {
       const formatter = new OutputFormatter();
       console.log(chalk.dim('\nValidation Results:'));
-      console.log(formatter.toCompact(result));
+      console.log(formatter.toCompact(validationResult));
     }
     
     console.log(chalk.dim(`\nRun 'sdd sync' to upload to server.`));

@@ -114,9 +114,9 @@
 
 - [ ] 11.1 Write exercise author guide
 - [ ] 11.2 Write mentor guide
-- [ ] 11.3 Create user getting-started documentation
-- [ ] 11.4 Document CLI commands and flags
+- [x] 11.3 Create user getting-started documentation (install-openspec.js + README)
+- [x] 11.4 Document CLI commands and flags (built into CLI help)
 - [ ] 11.5 Create contribution guidelines
-- [ ] 11.6 Seed with 10+ exercises across 2 tracks
+- [x] 11.6 Seed with 10+ exercises across 3 tracks (10 exercises: 3 basics, 5 patterns, 2 advanced)
 - [ ] 11.7 Perform end-to-end testing
 - [ ] 11.8 Prepare launch announcement

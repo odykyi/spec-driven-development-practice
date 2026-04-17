@@ -23,16 +23,154 @@ The SDD Training Platform provides:
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-org/sdd-training.git
-cd sdd-training
+# Navigate to the project directory
+cd spec-driven-development-practice
 
 # Install dependencies
 pnpm install
 
 # Build all packages
 pnpm build
+
+# Run the installer to set up offline workspace
+pnpm install-openspec
 ```
+
+---
+
+## 🖥️ Demo
+
+### Listing Available Exercises
+
+```bash
+$ sdd list
+
+📚 SDD Training - Available Exercises
+
+BASICS:
+  • Install OpenSpec (easy)
+    sdd download basics/install-openspec
+  • Hello World (easy)
+    sdd download basics/hello-world
+  • User Story (easy)
+    sdd download basics/user-story
+
+PATTERNS:
+  • State Machine (medium)
+    sdd download patterns/state-machine
+  • API Rate Limiting (medium)
+    sdd download patterns/api-rate-limiting
+  • User Authentication (medium)
+    sdd download patterns/user-authentication
+
+💡 Run "sdd download <exercise-id>" to start an exercise
+```
+
+### Downloading an Exercise
+
+```bash
+$ sdd download basics/hello-world
+
+⠋ Downloading exercise basics/hello-world...
+✔ Downloaded exercise basics/hello-world to ~/sdd-exercises/basics/hello-world
+
+To get started:
+  cd ~/sdd-exercises/basics/hello-world
+  sdd test
+```
+
+### Running Validation (Success)
+
+```bash
+$ cd ~/sdd-exercises/basics/hello-world
+$ sdd test
+
+⠋ Running tests...
+✅ Validation PASS
+
+Summary: 4/4 checks passed
+  Duration: 23ms
+
+Checks:
+  ✅ Requirements Present: Found 2 requirement(s)
+  ✅ Requirements Have Scenarios: All requirements have at least one scenario
+  ✅ Scenarios Have WHEN/THEN: All scenarios have proper WHEN and THEN clauses
+  ✅ Minimum Scenarios Count: Found 3 scenarios (minimum: 2)
+
+🎉 All checks passed! Ready to submit.
+```
+
+### Running Validation (Failure)
+
+```bash
+$ sdd test
+
+⠋ Running tests...
+❌ Validation FAIL
+
+Summary: 2/4 checks passed
+  Failed: 2
+  Duration: 18ms
+
+Checks:
+  ✅ Requirements Present: Found 1 requirement(s)
+  ❌ Requirements Have Scenarios: 1 requirement(s) missing scenarios: Greeting Function
+  ❌ Scenarios Have WHEN/THEN: Scenarios missing WHEN/THEN: Greeting Function > Default greeting
+  ✅ Minimum Scenarios Count: Found 1 scenarios (minimum: 1)
+
+Fix the failing checks and run 'sdd test' again.
+```
+
+### Submitting Your Solution
+
+```bash
+$ sdd submit
+
+⠋ Running validation...
+✅ Validation passed
+✔ Solution submitted successfully!
+
+Validation Results:
+✅ All 4 checks passed
+
+Run 'sdd sync' to upload to server.
+```
+
+### Web Interface
+
+The web platform provides a browser-based editor for writing specifications:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  SDD Training                                    Dashboard  │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  Hello World                                                │
+│  ○ easy                                            Start →  │
+│                                                             │
+│  Instructions    [Editor]                                 │
+│  ┌─────────────────────────────────────────────────────┐   │
+│  │ # Hello World                                       │   │
+│  │                                                     │   │
+│  │ ## ADDED Requirements                               │   │
+│  │                                                     │   │
+│  │ ### Requirement: Greeting Function                  │   │
+│  │ The system SHALL provide...                         │   │
+│  │                                                     │   │
+│  │ #### Scenario: Default greeting                     │   │
+│  │ - **WHEN** no name is provided                     │   │
+│  │ - **THEN** return "Hello, World!"                  │   │
+│  └─────────────────────────────────────────────────────┘   │
+│                                                             │
+│  [Validate]                                                 │
+│                                                             │
+│  ✅ Validation Passed                                       │
+│  4/4 checks passed                                         │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
 
 ### CLI Usage
 
@@ -41,7 +179,7 @@ pnpm build
 pnpm cli download basics/hello-world
 
 # Navigate to exercise and write your spec
-cd exercises/basics/hello-world
+cd ~/sdd-exercises/basics/hello-world
 
 # Test your solution locally
 pnpm cli test

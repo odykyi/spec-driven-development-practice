@@ -200,7 +200,7 @@ describe('Dependency Graph', () => {
   });
 
   it('should get unlock order', () => {
-    const graph = new Map([
+    const graph = new Map<string, Set<string>>([
       ['c', new Set(['b'])],
       ['b', new Set(['a'])],
       ['a', new Set()],

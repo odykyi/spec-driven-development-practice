@@ -1,22 +1,13 @@
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import * as yaml from 'yaml';
-import { ExerciseConfig } from '../types/index.js';
+import { ExerciseConfig, Track } from './types/index.js';
 
 export interface Exercise {
   id: string;
   config: ExerciseConfig;
   readme: string;
   directory: string;
-}
-
-export interface Track {
-  id: string;
-  name: string;
-  description: string;
-  difficulty: 'beginner' | 'intermediate' | 'advanced';
-  exercises: string[];
-  concepts?: string[];
 }
 
 export class ExerciseLoader {

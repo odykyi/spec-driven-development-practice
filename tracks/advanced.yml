@@ -1,12 +1,13 @@
 name: Advanced
-description: Advanced topics in specification writing
+description: Complex multi-step flows and real-world scenarios
 difficulty: advanced
 exercises:
   - advanced/ecommerce-checkout
+  - advanced/database-migration
 concepts:
   - Complex Multi-Step Flows
-  - Error Handling
   - Business Rules
   - State Management
   - Data Validation
   - Security Requirements
+  - Zero-Downtime Deployments

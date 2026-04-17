@@ -14,7 +14,7 @@ const tracks = [
     name: 'Patterns',
     description: 'Common patterns for complex systems',
     difficulty: 'Intermediate',
-    exercises: 1,
+    exercises: 5,
     color: 'bg-yellow-100 text-yellow-800',
   },
   {
@@ -22,7 +22,7 @@ const tracks = [
     name: 'Advanced',
     description: 'Complex multi-step flows and real-world scenarios',
     difficulty: 'Advanced',
-    exercises: 1,
+    exercises: 2,
     color: 'bg-red-100 text-red-800',
   },
 ];

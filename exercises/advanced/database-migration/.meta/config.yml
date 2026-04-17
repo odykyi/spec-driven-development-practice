@@ -1,0 +1,21 @@
+id: advanced/database-migration
+track: advanced
+name: Database Migration System
+difficulty: hard
+prerequisites:
+  - advanced/ecommerce-checkout
+validationRules:
+  - requirements-present
+  - requirements-have-scenarios
+  - scenarios-have-when-then
+  - min-scenarios
+minScenarios: 10
+requiredSections:
+  - Requirements
+hints:
+  - "Emphasize backward compatibility requirement"
+  - "Document the expand-contract pattern"
+  - "Include rollback scenario for each migration type"
+  - "Consider data integrity verification"
+  - "Document dry-run capability"
+examples: []

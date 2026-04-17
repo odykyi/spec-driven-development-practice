@@ -1,0 +1,21 @@
+id: patterns/notification-system
+track: patterns
+name: Notification System
+difficulty: medium
+prerequisites:
+  - patterns/state-machine
+validationRules:
+  - requirements-present
+  - requirements-have-scenarios
+  - scenarios-have-when-then
+  - min-scenarios
+minScenarios: 8
+requiredSections:
+  - Requirements
+hints:
+  - "Define all notification channels explicitly"
+  - "Document preference management system"
+  - "Include priority-based routing logic"
+  - "Consider delivery failure handling"
+  - "Document quiet hours behavior"
+examples: []

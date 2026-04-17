@@ -1,0 +1,21 @@
+id: patterns/file-upload
+track: patterns
+name: File Upload System
+difficulty: medium
+prerequisites:
+  - basics/user-story
+validationRules:
+  - requirements-present
+  - requirements-have-scenarios
+  - scenarios-have-when-then
+  - min-scenarios
+minScenarios: 8
+requiredSections:
+  - Requirements
+hints:
+  - "Define specific file size and type constraints"
+  - "Include chunked upload behavior"
+  - "Document virus scanning requirement"
+  - "Consider storage quota enforcement"
+  - "Handle network interruption scenarios"
+examples: []

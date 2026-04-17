@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import ora from 'ora';
 import { getConfig } from '../config/config.js';
-import { getDatabase } from '../database/sqlite.js';
+import { getDatabase, getAllProgress } from '../database/sqlite.js';
 
 interface SyncOptions {
   upload?: boolean;
@@ -22,7 +22,7 @@ export async function syncCommand(options: SyncOptions): Promise<void> {
     if (upload) {
       spinner.text = 'Uploading local progress...';
       
-      const localProgress = await db.getAllProgress();
+      const localProgress = await getAllProgress();
       
       if (localProgress.length === 0) {
         spinner.info('No local progress to upload.');

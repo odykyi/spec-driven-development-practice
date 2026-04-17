@@ -3,8 +3,14 @@ description: Learn common specification patterns for complex systems
 difficulty: intermediate
 exercises:
   - patterns/state-machine
+  - patterns/api-rate-limiting
+  - patterns/user-authentication
+  - patterns/file-upload
+  - patterns/notification-system
 concepts:
   - State Machines
-  - Event Modeling
+  - Rate Limiting
+  - Authentication Flows
+  - File Handling
+  - Event Notification
   - Error Handling
-  - Timing Requirements

@@ -1,0 +1,21 @@
+id: patterns/api-rate-limiting
+track: patterns
+name: API Rate Limiting
+difficulty: medium
+prerequisites:
+  - basics/user-story
+validationRules:
+  - requirements-present
+  - requirements-have-scenarios
+  - scenarios-have-when-then
+  - min-scenarios
+minScenarios: 6
+requiredSections:
+  - Requirements
+hints:
+  - "Specify the exact numeric limits for each user tier"
+  - "Include scenarios for edge cases (exactly at limit, 1 over limit)"
+  - "Document the HTTP headers that should be returned"
+  - "Consider what happens when the time window resets"
+  - "Include error response format"
+examples: []

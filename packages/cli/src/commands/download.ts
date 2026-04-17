@@ -5,6 +5,32 @@ import ora from 'ora';
 import { ExerciseLoader } from '@sdd-training/core';
 import { getConfig } from '../config/config.js';
 
+// Find exercises directory - check multiple locations
+async function findExercisesPath(): Promise<string> {
+  // Try paths from current working directory
+  const possiblePaths = [
+    // Project root exercises
+    path.join(process.cwd(), 'exercises'),
+    // If running from packages/cli/
+    path.join(process.cwd(), '..', '..', 'exercises'),
+    // If running from packages/cli/dist/
+    path.join(process.cwd(), '..', '..', '..', 'exercises'),
+    // Current directory
+    './exercises',
+  ];
+
+  for (const exercisesPath of possiblePaths) {
+    try {
+      await fs.access(exercisesPath);
+      return path.resolve(exercisesPath);
+    } catch {
+      continue;
+    }
+  }
+
+  throw new Error('Could not find exercises directory. Are you running from the project root?');
+}
+
 interface DownloadOptions {
   force?: boolean;
 }
@@ -14,7 +40,7 @@ export async function downloadCommand(exerciseId: string, options: DownloadOptio
   
   try {
     const config = await getConfig();
-    const exercisesPath = config.exercisesPath || './exercises';
+    const exercisesPath = await findExercisesPath();
     const targetPath = path.join(config.workspacePath, exerciseId);
 
     // Check if exercise already exists
