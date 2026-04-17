@@ -40,30 +40,48 @@ pnpm install-openspec
 
 ## 🖥️ Demo
 
-### Listing Available Exercises
+### Initializing an Exercise (OpenSpec Workflow)
 
 ```bash
-$ sdd list
+$ sdd init-exercise basics/hello-world
 
-📚 SDD Training - Available Exercises
+⠋ Initializing exercise basics/hello-world...
+✔ Exercise basics/hello-world initialized!
 
-BASICS:
-  • Install OpenSpec (easy)
-    sdd download basics/install-openspec
-  • Hello World (easy)
-    sdd download basics/hello-world
-  • User Story (easy)
-    sdd download basics/user-story
+Location: ~/sdd-exercises/openspec/changes/basics-hello-world
 
-PATTERNS:
-  • State Machine (medium)
-    sdd download patterns/state-machine
-  • API Rate Limiting (medium)
-    sdd download patterns/api-rate-limiting
-  • User Authentication (medium)
-    sdd download patterns/user-authentication
+Next steps:
+  cd ~/sdd-exercises/openspec/changes/basics-hello-world
+  cat proposal.md    # Read exercise
+  edit specs/spec.md # Write your spec
+  openspec validate --change basics-hello-world
+```
 
-💡 Run "sdd download <exercise-id>" to start an exercise
+### Checking OpenSpec Status
+
+```bash
+$ openspec status --change basics-hello-world
+
+Change: basics-hello-world
+Schema: spec-driven
+Progress: 4/4 artifacts complete
+
+[x] proposal
+[x] design
+[x] specs
+[x] tasks
+
+All artifacts complete!
+```
+
+### Running OpenSpec Validation
+
+```bash
+$ openspec validate --change basics-hello-world
+
+✅ Validation PASS
+
+All checks passed!
 ```
 
 ### Downloading an Exercise
@@ -179,20 +197,24 @@ There are three ways to run the `sdd` CLI:
 **Option 1: From project directory (easiest for development)**
 ```bash
 # From the spec-driven-development-practice directory:
-pnpm cli download basics/hello-world
-cd ~/sdd-exercises/basics/hello-world
+pnpm cli init-exercise basics/hello-world
 
-# Run commands from project root:
-pnpm cli test
-pnpm cli submit
+# Navigate to OpenSpec change:
+cd ~/sdd-exercises/openspec/changes/basics-hello-world
+
+# Write your spec in specs/spec.md
+# Then validate with OpenSpec:
+openspec validate --change basics-hello-world
 ```
 
 **Option 2: Direct path to CLI (when in exercise directory)**
 ```bash
-cd ~/sdd-exercises/basics/hello-world
+cd ~/sdd-exercises/openspec/changes/basics-hello-world
 
 # Use full path to CLI:
 node /path/to/spec-driven-development-practice/packages/cli/dist/cli.js test
+# Or use OpenSpec directly:
+openspec validate --change basics-hello-world
 ```
 
 **Option 3: Create alias (recommended for daily use)**
@@ -204,19 +226,20 @@ alias sdd='node /path/to/spec-driven-development-practice/packages/cli/dist/cli.
 source ~/.zshrc  # or source ~/.bashrc
 
 # Now you can use 'sdd' from anywhere:
-sdd download basics/hello-world
-cd ~/sdd-exercises/basics/hello-world
-sdd test
+sdd init-exercise basics/hello-world
+cd ~/sdd-exercises/openspec/changes/basics-hello-world
+openspec validate --change basics-hello-world
 sdd submit
 ```
 
 **Common Commands:**
 ```bash
-sdd list                    # List all exercises
-sdd download <exercise>     # Download an exercise
-sdd test                    # Validate your spec
-sdd submit                  # Submit solution
-sdd list --all              # Show available exercises
+sdd list                           # List all exercises
+sdd init-exercise <exercise>       # Initialize exercise as OpenSpec change
+openspec validate --change <name>  # Validate your spec
+openspec status --change <name>    # Check completion status
+sdd submit                         # Submit solution
+openspec list                      # List all changes
 ```
 
 ### Web Platform

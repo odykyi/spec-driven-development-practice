@@ -62,7 +62,23 @@ try {
   }
 }
 
-// Step 3: Install dependencies
+// Step 3: Check OpenSpec CLI
+console.log('📋 Checking OpenSpec CLI...');
+try {
+  const openspecVersion = execSync('openspec --version', { encoding: 'utf-8' }).trim();
+  console.log(`✓ OpenSpec CLI ${openspecVersion} found\n`);
+} catch {
+  console.log('⚠️  OpenSpec CLI not found. Installing...');
+  try {
+    execSync('npm install -g @openspec/cli', { stdio: 'inherit' });
+    console.log('✓ OpenSpec CLI installed\n');
+  } catch {
+    console.error('❌ Failed to install OpenSpec CLI. Please install manually: npm install -g @openspec/cli');
+    process.exit(1);
+  }
+}
+
+// Step 4: Install dependencies
 console.log('📦 Installing dependencies...');
 try {
   execSync('pnpm install', { stdio: 'inherit' });
@@ -72,7 +88,7 @@ try {
   process.exit(1);
 }
 
-// Step 4: Build packages
+// Step 5: Build packages
 console.log('🔨 Building packages...');
 try {
   execSync('pnpm build', { stdio: 'inherit' });
@@ -82,7 +98,7 @@ try {
   process.exit(1);
 }
 
-// Step 5: Link CLI globally (optional)
+// Step 6: Link CLI globally (optional)
 console.log('🔗 Linking CLI globally...');
 try {
   execSync('pnpm --filter @sdd-training/cli link --global', { stdio: 'pipe' });
@@ -91,7 +107,7 @@ try {
   console.log('⚠️  Could not link CLI globally. You can use: pnpm cli\n');
 }
 
-// Step 6: Set up workspace directory
+// Step 7: Set up workspace directory
 console.log('📁 Setting up workspace...');
 const workspaceDir = path.join(os.homedir(), 'sdd-exercises');
 if (!fs.existsSync(workspaceDir)) {
@@ -101,7 +117,7 @@ if (!fs.existsSync(workspaceDir)) {
   console.log(`✓ Workspace exists: ${workspaceDir}\n`);
 }
 
-// Step 7: Copy exercises to workspace
+// Step 8: Copy exercises to workspace
 console.log('📚 Copying exercises to workspace...');
 const exercisesSource = path.join(currentDir, 'exercises');
 const exercisesDest = path.join(workspaceDir, 'exercises');
@@ -117,7 +133,7 @@ try {
   process.exit(1);
 }
 
-// Step 8: Create config
+// Step 9: Create config
 const configDir = path.join(os.homedir(), '.config', 'sdd');
 if (!fs.existsSync(configDir)) {
   fs.mkdirSync(configDir, { recursive: true });
@@ -138,9 +154,10 @@ console.log('✓ Configuration saved\n');
 // Done
 console.log('🎉 OpenSpec is ready for offline use!');
 console.log('\nNext steps:');
-console.log('  1. Run: sdd download basics/install-openspec');
-console.log('  2. Navigate to: cd ~/sdd-exercises/basics/install-openspec');
-console.log('  3. Read the README: cat README.md');
-console.log('  4. Write your spec: edit spec.md');
-console.log('  5. Test your solution: sdd test');
+console.log('  1. Run: sdd init-exercise basics/hello-world');
+console.log('  2. Navigate to: cd ~/sdd-exercises/openspec/changes/basics-hello-world');
+console.log('  3. Read the README: cat proposal.md');
+console.log('  4. Write your spec: edit specs/spec.md');
+console.log('  5. Check status: openspec status --change basics-hello-world');
+console.log('  6. Validate: openspec validate --change basics-hello-world');
 console.log('\nAll exercises are available offline!');

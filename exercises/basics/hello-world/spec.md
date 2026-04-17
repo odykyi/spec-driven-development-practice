@@ -1,0 +1,1 @@
+Default greeting when no name provided

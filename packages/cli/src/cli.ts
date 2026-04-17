@@ -1,6 +1,7 @@
 import { Command } from 'commander';
 import chalk from 'chalk';
 import { downloadCommand } from './commands/download.js';
+import { initExerciseCommand } from './commands/init-exercise.js';
 import { submitCommand } from './commands/submit.js';
 import { listCommand } from './commands/list.js';
 import { testCommand } from './commands/test.js';
@@ -20,6 +21,13 @@ program
   .argument('<exercise>', 'Exercise ID (e.g., basics/hello-world)')
   .option('-f, --force', 'Overwrite existing exercise')
   .action(downloadCommand);
+
+program
+  .command('init-exercise')
+  .description('Initialize an exercise as an OpenSpec change')
+  .argument('<exercise>', 'Exercise ID (e.g., basics/hello-world)')
+  .option('-f, --force', 'Overwrite existing change')
+  .action(initExerciseCommand);
 
 program
   .command('submit')
