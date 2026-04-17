@@ -39,3 +39,12 @@ Your specification should:
 - Consider what happens when the system starts
 - Include timing as explicit requirements
 - Model error states explicitly
+
+## Definition of Done
+
+✅ **At least 4 scenarios** (normal, emergency, power failure, manual)  
+✅ **All 3 states defined** (Red, Green, Yellow)  
+✅ **State transitions documented** with triggers  
+✅ **Timing requirements specified** for each state  
+✅ **Invariants documented** (only one light active)  
+✅ **Validates successfully** with `sdd test`

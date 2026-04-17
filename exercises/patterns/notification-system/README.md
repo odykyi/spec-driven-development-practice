@@ -48,3 +48,13 @@ The system SHALL route notifications based on user preferences.
 - **THEN** the system adds to daily digest queue
 - **AND** does not send immediate notification
 ```
+
+## Definition of Done
+
+✅ **At least 8 scenarios** covering different channels and priorities  
+✅ **All 4 channels specified** (Email, Push, SMS, In-App)  
+✅ **Preference management** (enable/disable per channel)  
+✅ **Quiet hours** behavior defined  
+✅ **Digest frequency** options (immediate, hourly, daily, weekly)  
+✅ **Priority-based routing** (critical bypasses quiet hours)  
+✅ **Validates successfully** with `sdd test`

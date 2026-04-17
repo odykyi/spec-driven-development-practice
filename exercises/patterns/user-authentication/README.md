@@ -55,3 +55,12 @@ The system SHALL allow users to create accounts.
 - **THEN** the system returns 400 Bad Request
 - **AND** includes error: "Password must be at least 8 characters"
 ```
+
+## Definition of Done
+
+✅ **At least 10 scenarios** covering the 12-step flow  
+✅ **All 12 steps documented** with requirements  
+✅ **Security requirements specified** (password rules, lockout)  
+✅ **Session management defined** (creation, validation, expiry)  
+✅ **Error scenarios included** (weak password, invalid credentials)  
+✅ **Validates successfully** with `sdd test`

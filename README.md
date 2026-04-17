@@ -174,18 +174,49 @@ The web platform provides a browser-based editor for writing specifications:
 
 ### CLI Usage
 
-```bash
-# Download an exercise
-pnpm cli download basics/hello-world
+There are three ways to run the `sdd` CLI:
 
-# Navigate to exercise and write your spec
+**Option 1: From project directory (easiest for development)**
+```bash
+# From the spec-driven-development-practice directory:
+pnpm cli download basics/hello-world
 cd ~/sdd-exercises/basics/hello-world
 
-# Test your solution locally
+# Run commands from project root:
 pnpm cli test
-
-# Submit your solution
 pnpm cli submit
+```
+
+**Option 2: Direct path to CLI (when in exercise directory)**
+```bash
+cd ~/sdd-exercises/basics/hello-world
+
+# Use full path to CLI:
+node /path/to/spec-driven-development-practice/packages/cli/dist/cli.js test
+```
+
+**Option 3: Create alias (recommended for daily use)**
+```bash
+# Add to your ~/.zshrc or ~/.bashrc:
+alias sdd='node /path/to/spec-driven-development-practice/packages/cli/dist/cli.js'
+
+# Then reload your shell:
+source ~/.zshrc  # or source ~/.bashrc
+
+# Now you can use 'sdd' from anywhere:
+sdd download basics/hello-world
+cd ~/sdd-exercises/basics/hello-world
+sdd test
+sdd submit
+```
+
+**Common Commands:**
+```bash
+sdd list                    # List all exercises
+sdd download <exercise>     # Download an exercise
+sdd test                    # Validate your spec
+sdd submit                  # Submit solution
+sdd list --all              # Show available exercises
 ```
 
 ### Web Platform

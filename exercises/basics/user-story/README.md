@@ -28,6 +28,14 @@ Your specification should:
 - Use "Then" to describe the expected outcome
 - You can have multiple "And" steps
 
+## Definition of Done
+
+✅ **At least 3 scenarios** (success, out-of-stock, multiple quantities)  
+✅ **Uses GIVEN-WHEN-THEN format** for all scenarios  
+✅ **User story is clearly defined** from user's perspective  
+✅ **Business rules documented**  
+✅ **Validates successfully** with `sdd test`
+
 ## Example Structure
 
 ```markdown

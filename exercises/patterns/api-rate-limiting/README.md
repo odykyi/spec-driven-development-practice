@@ -48,3 +48,13 @@ The API SHALL enforce rate limits based on user tier.
 - **THEN** the system returns 429 Too Many Requests
 - **AND** returns Retry-After header with seconds until reset
 ```
+
+## Definition of Done
+
+✅ **At least 6 scenarios** covering different user tiers and limits  
+✅ **Request counting mechanism specified**  
+✅ **Time windows defined** (per sec/min/hour/day)  
+✅ **Rate limit headers documented** (X-RateLimit-*)  
+✅ **429 behavior defined** when limits exceeded  
+✅ **Burst handling specified** (20 req/sec)  
+✅ **Validates successfully** with `sdd test`

@@ -42,3 +42,11 @@ Your specification for this exercise should describe:
 - The `--version` flag shows the installed version
 - The `--help` flag shows available commands
 - Think about what a new user needs to know to get started
+
+## Definition of Done
+
+✅ **At least 3 scenarios** (install, verify, help)  
+✅ **Installation process documented** with npm command  
+✅ **Verification steps included** (--version output)  
+✅ **Available commands listed** (--help output)  
+✅ **Validates successfully** with `sdd test`

@@ -51,3 +51,13 @@ The system SHALL validate uploaded files before processing.
 - **THEN** the system returns error: "File exceeds 100MB limit"
 - **AND** prevents upload from starting
 ```
+
+## Definition of Done
+
+✅ **At least 8 scenarios** covering validation, progress, errors  
+✅ **File type validation** (MIME types)  
+✅ **Size limits enforced** (100MB max)  
+✅ **Progress tracking** for uploads  
+✅ **Virus scanning** before storage  
+✅ **Storage quota** per user (1GB)  
+✅ **Validates successfully** with `sdd test`

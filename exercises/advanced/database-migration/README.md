@@ -56,3 +56,14 @@ The system SHALL perform schema changes without downtime.
 - **AND** step 3: Deploy code using "email_address"
 - **AND** step 4: Remove old "email" column
 ```
+
+## Definition of Done
+
+✅ **At least 10 scenarios** covering different migration types  
+✅ **All 4 migration types** (Schema, Data, Constraint, Index)  
+✅ **Backward compatibility** required for all changes  
+✅ **Rollback procedures** documented  
+✅ **Zero-downtime pattern** (expand-contract)  
+✅ **Safety checks** (dry-run, backups)  
+✅ **Data integrity** verification before/after  
+✅ **Validates successfully** with `sdd test`
