@@ -1,0 +1,18 @@
+id: basics/hello-world
+track: basics
+name: Hello World
+difficulty: easy
+prerequisites: []
+validationRules:
+  - requirements-present
+  - requirements-have-scenarios
+  - scenarios-have-when-then
+  - min-scenarios
+minScenarios: 2
+requiredSections:
+  - Requirements
+hints:
+  - "Remember to use SHALL for requirements"
+  - "Include both positive and negative test cases"
+  - "Be specific about what the function returns"
+examples: []

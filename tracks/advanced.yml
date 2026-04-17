@@ -1,0 +1,9 @@
+name: Advanced
+description: Advanced topics in specification writing
+difficulty: advanced
+exercises: []
+concepts:
+  - Formal Methods
+  - Invariant Documentation
+  - Security Specifications
+  - Performance Requirements

@@ -1,0 +1,25 @@
+{
+  "name": "sdd-training",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Spec-Driven Development Training Platform - Learn to write effective specifications and prompts for AI-assisted development",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write .",
+    "dev": "pnpm --filter @sdd-training/web dev",
+    "cli": "pnpm --filter @sdd-training/cli start"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.12.0"
+}

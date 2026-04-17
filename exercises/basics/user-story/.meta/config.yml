@@ -1,0 +1,20 @@
+id: basics/user-story
+track: basics
+name: User Story
+difficulty: easy
+prerequisites:
+  - basics/hello-world
+validationRules:
+  - requirements-present
+  - requirements-have-scenarios
+  - scenarios-have-when-then
+  - min-scenarios
+minScenarios: 3
+requiredSections:
+  - Requirements
+hints:
+  - "Start with the happy path scenario"
+  - "Consider what happens when things go wrong"
+  - "Think about quantity limits"
+  - "Use GIVEN to set up the context"
+examples: []

@@ -1,0 +1,23 @@
+id: patterns/state-machine
+track: patterns
+name: State Machine
+difficulty: medium
+prerequisites:
+  - basics/hello-world
+  - basics/user-story
+validationRules:
+  - requirements-present
+  - requirements-have-scenarios
+  - scenarios-have-when-then
+  - min-scenarios
+minScenarios: 4
+requiredSections:
+  - Requirements
+hints:
+  - "List all possible states explicitly"
+  - "Define what triggers each transition"
+  - "Consider entry and exit actions"
+  - "Document timing requirements clearly"
+examples:
+  - "State transitions are triggered by events"
+  - "Each state has entry conditions"

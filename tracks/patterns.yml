@@ -1,0 +1,10 @@
+name: Patterns
+description: Learn common specification patterns for complex systems
+difficulty: intermediate
+exercises:
+  - patterns/state-machine
+concepts:
+  - State Machines
+  - Event Modeling
+  - Error Handling
+  - Timing Requirements

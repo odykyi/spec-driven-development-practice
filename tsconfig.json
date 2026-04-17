@@ -1,0 +1,10 @@
+{
+  "extends": "./packages/core/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@sdd-training/core": ["./packages/core/src"],
+      "@sdd-training/cli": ["./packages/cli/src"]
+    }
+  }
+}
