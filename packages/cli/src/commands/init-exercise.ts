@@ -171,7 +171,7 @@ ${scenarios}
 - [ ] 1.1 Read exercise requirements in proposal.md
 - [ ] 1.2 Write requirements in specs/spec.md
 - [ ] 1.3 Add scenarios covering all cases
-- [ ] 1.4 Validate with: openspec validate --change ${changeName}
+- [ ] 1.4 Validate with: openspec validate ${changeName}
 
 ## 2. Complete Artifacts
 

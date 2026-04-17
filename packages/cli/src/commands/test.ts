@@ -43,8 +43,8 @@ export async function testCommand(options: TestOptions): Promise<void> {
     // Run OpenSpec validation
     spinner.text = 'Running OpenSpec validation...';
     try {
-      const output = execSync(`openspec validate --change "${changeName}"`, {
-        cwd: path.join(cwd, '..', '..'), // Run from workspace root
+      const output = execSync(`openspec validate "${changeName}"`, {
+        cwd: path.join(cwd, '..', '..', '..'), // Run from workspace root (3 levels up from change dir)
         encoding: 'utf-8',
         stdio: 'pipe',
       });
@@ -86,8 +86,8 @@ export async function testCommand(options: TestOptions): Promise<void> {
             lastContent = currentContent;
 
             try {
-              const output = execSync(`openspec validate --change "${changeName}"`, {
-                cwd: path.join(cwd, '..', '..'),
+              const output = execSync(`openspec validate "${changeName}"`, {
+                cwd: path.join(cwd, '..', '..', '..'),
                 encoding: 'utf-8',
                 stdio: 'pipe',
               });

@@ -52,7 +52,7 @@ export async function submitCommand(options: SubmitOptions): Promise<void> {
     }
 
     const exerciseId = toExerciseId(changeName);
-    const workspaceRoot = path.join(cwd, '..', '..');
+    const workspaceRoot = path.join(cwd, '..', '..', '..');
 
     // Check OpenSpec status
     spinner.text = 'Checking OpenSpec status...';
@@ -84,7 +84,7 @@ export async function submitCommand(options: SubmitOptions): Promise<void> {
         }
         
         console.log(chalk.dim(`\nRun: openspec status --change ${changeName}`));
-        console.log(chalk.dim('Or: openspec validate --change ' + changeName));
+        console.log(chalk.dim('Or: openspec validate ' + changeName));
         process.exit(1);
       }
     } catch (error: any) {
@@ -98,7 +98,7 @@ export async function submitCommand(options: SubmitOptions): Promise<void> {
     if (options.validate !== false) {
       spinner.text = 'Running validation...';
       try {
-        execSync(`openspec validate --change "${changeName}"`, {
+        execSync(`openspec validate "${changeName}"`, {
           cwd: workspaceRoot,
           stdio: 'pipe',
         });
