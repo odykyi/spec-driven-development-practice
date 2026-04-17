@@ -28,11 +28,11 @@
 
 ## 5. Update Exercise READMEs
 
-- [x] 5.1 Update all 10 exercise READMEs to reference `openspec/changes/` (hello-world example done)
-- [ ] 5.2 Add "Where to Write" section pointing to change directory (remaining 9 exercises)
-- [ ] 5.3 Update DoD to reference OpenSpec artifacts (proposal, design, specs, tasks) (remaining 9 exercises)
-- [ ] 5.4 Remove references to standalone `spec.md` file (remaining 9 exercises)
-- [ ] 5.5 Update example commands to use `openspec` CLI (remaining 9 exercises)
+- [x] 5.1 Update all 10 exercise READMEs to reference `openspec/changes/`
+- [x] 5.2 Add "Where to Write" section pointing to change directory
+- [x] 5.3 Update DoD to reference OpenSpec artifacts (proposal, design, specs, tasks)
+- [x] 5.4 Remove references to standalone `spec.md` file
+- [x] 5.5 Update example commands to use `openspec` CLI
 
 ## 6. Update List Command
 

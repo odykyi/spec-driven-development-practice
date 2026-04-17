@@ -51,26 +51,28 @@ The API SHALL enforce rate limits based on user tier.
 
 ## Definition of Done
 
-✅ **Written in `spec.md` file** (in this exercise folder)  
+✅ **Initialize OpenSpec change**: `sdd init-exercise patterns/api-rate-limiting`  
+✅ **Write in `openspec/changes/patterns-api-rate-limiting/specs/spec.md`**  
 ✅ **At least 6 scenarios** covering different user tiers and limits  
 ✅ **Request counting mechanism specified**  
 ✅ **Time windows defined** (per sec/min/hour/day)  
 ✅ **Rate limit headers documented** (X-RateLimit-*)  
 ✅ **429 behavior defined** when limits exceeded  
 ✅ **Burst handling specified** (20 req/sec)  
-✅ **Validates successfully** with `sdd test`
+✅ **All artifacts complete**: Check with `openspec status --change patterns-api-rate-limiting`  
+✅ **Validates successfully**: Run `openspec validate --change patterns-api-rate-limiting`
 
 ## Where to Write
 
-Edit the file **`spec.md`** in your exercise directory.
+After running `sdd init-exercise patterns/api-rate-limiting`, edit:
+```
+~/sdd-exercises/openspec/changes/patterns-api-rate-limiting/specs/spec.md
+```
 
 Run this to open it:
 ```bash
-# On macOS:
-open spec.md
-
-# Or use any editor:
-nano spec.md
-vim spec.md
-code spec.md  # VS Code
+cd ~/sdd-exercises/openspec/changes/patterns-api-rate-limiting
+open specs/spec.md        # On macOS
+# Or: nano specs/spec.md
+# Or: code specs/spec.md  # VS Code
 ```

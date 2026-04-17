@@ -10,6 +10,11 @@ import {
   Scenario,
 } from '../types/index.js';
 
+/**
+ * @deprecated Use `openspec validate` CLI command instead for new code.
+ * This engine is kept for backward compatibility with the web app API route.
+ * For programmatic validation, prefer spawning `openspec validate` process.
+ */
 export class ValidationEngine {
   private rules: Map<string, ValidationRule> = new Map();
   private cache: ValidationCache | null = null;
@@ -253,6 +258,9 @@ export class ValidationEngine {
   }
 }
 
+/**
+ * @deprecated Use `openspec validate` CLI command instead. This cache is kept for backward compatibility.
+ */
 export function createMemoryCache(): ValidationCache {
   const cache = new Map<string, { result: ValidationResult; expires: number }>();
 

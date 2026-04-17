@@ -42,25 +42,27 @@ Your specification should:
 
 ## Definition of Done
 
-✅ **Written in `spec.md` file** (in this exercise folder)  
+✅ **Initialize OpenSpec change**: `sdd init-exercise patterns/state-machine`  
+✅ **Write in `openspec/changes/patterns-state-machine/specs/spec.md`**  
 ✅ **At least 4 scenarios** (normal, emergency, power failure, manual)  
 ✅ **All 3 states defined** (Red, Green, Yellow)  
 ✅ **State transitions documented** with triggers  
 ✅ **Timing requirements specified** for each state  
 ✅ **Invariants documented** (only one light active)  
-✅ **Validates successfully** with `sdd test`
+✅ **All artifacts complete**: Check with `openspec status --change patterns-state-machine`  
+✅ **Validates successfully**: Run `openspec validate --change patterns-state-machine`
 
 ## Where to Write
 
-Edit the file **`spec.md`** in your exercise directory.
+After running `sdd init-exercise patterns/state-machine`, edit:
+```
+~/sdd-exercises/openspec/changes/patterns-state-machine/specs/spec.md
+```
 
 Run this to open it:
 ```bash
-# On macOS:
-open spec.md
-
-# Or use any editor:
-nano spec.md
-vim spec.md
-code spec.md  # VS Code
+cd ~/sdd-exercises/openspec/changes/patterns-state-machine
+open specs/spec.md        # On macOS
+# Or: nano specs/spec.md
+# Or: code specs/spec.md  # VS Code
 ```

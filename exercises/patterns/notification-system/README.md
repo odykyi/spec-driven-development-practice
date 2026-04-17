@@ -51,26 +51,28 @@ The system SHALL route notifications based on user preferences.
 
 ## Definition of Done
 
-✅ **Written in `spec.md` file** (in this exercise folder)  
+✅ **Initialize OpenSpec change**: `sdd init-exercise patterns/notification-system`  
+✅ **Write in `openspec/changes/patterns-notification-system/specs/spec.md`**  
 ✅ **At least 8 scenarios** covering different channels and priorities  
 ✅ **All 4 channels specified** (Email, Push, SMS, In-App)  
 ✅ **Preference management** (enable/disable per channel)  
 ✅ **Quiet hours** behavior defined  
 ✅ **Digest frequency** options (immediate, hourly, daily, weekly)  
 ✅ **Priority-based routing** (critical bypasses quiet hours)  
-✅ **Validates successfully** with `sdd test`
+✅ **All artifacts complete**: Check with `openspec status --change patterns-notification-system`  
+✅ **Validates successfully**: Run `openspec validate --change patterns-notification-system`
 
 ## Where to Write
 
-Edit the file **`spec.md`** in your exercise directory.
+After running `sdd init-exercise patterns/notification-system`, edit:
+```
+~/sdd-exercises/openspec/changes/patterns-notification-system/specs/spec.md
+```
 
 Run this to open it:
 ```bash
-# On macOS:
-open spec.md
-
-# Or use any editor:
-nano spec.md
-vim spec.md
-code spec.md  # VS Code
+cd ~/sdd-exercises/openspec/changes/patterns-notification-system
+open specs/spec.md        # On macOS
+# Or: nano specs/spec.md
+# Or: code specs/spec.md  # VS Code
 ```

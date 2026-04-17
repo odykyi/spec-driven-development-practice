@@ -30,26 +30,28 @@ Your specification should:
 
 ## Definition of Done
 
-✅ **Written in `spec.md` file** (in this exercise folder)  
+✅ **Initialize OpenSpec change**: `sdd init-exercise basics/user-story`  
+✅ **Write in `openspec/changes/basics-user-story/specs/spec.md`**  
 ✅ **At least 3 scenarios** (success, out-of-stock, multiple quantities)  
 ✅ **Uses GIVEN-WHEN-THEN format** for all scenarios  
 ✅ **User story is clearly defined** from user's perspective  
 ✅ **Business rules documented**  
-✅ **Validates successfully** with `sdd test`
+✅ **All artifacts complete**: Check with `openspec status --change basics-user-story`  
+✅ **Validates successfully**: Run `openspec validate --change basics-user-story`
 
 ## Where to Write
 
-Edit the file **`spec.md`** in your exercise directory.
+After running `sdd init-exercise basics/user-story`, edit:
+```
+~/sdd-exercises/openspec/changes/basics-user-story/specs/spec.md
+```
 
 Run this to open it:
 ```bash
-# On macOS:
-open spec.md
-
-# Or use any editor:
-nano spec.md
-vim spec.md
-code spec.md  # VS Code
+cd ~/sdd-exercises/openspec/changes/basics-user-story
+open specs/spec.md        # On macOS
+# Or: nano specs/spec.md
+# Or: code specs/spec.md  # VS Code
 ```
 
 ## Example Structure

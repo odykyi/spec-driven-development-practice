@@ -110,26 +110,28 @@ The system SHALL allow users to browse and select products.
 
 ## Success Criteria / Definition of Done
 
-✅ **Written in `spec.md` file** (in this exercise folder)  
+✅ **Initialize OpenSpec change**: `sdd init-exercise advanced/ecommerce-checkout`  
+✅ **Write in `openspec/changes/advanced-ecommerce-checkout/specs/spec.md`**  
 ✅ **All 20 steps documented** with requirements  
 ✅ **At least 10 scenarios** covering the flow  
 ✅ **5+ error scenarios** defined  
 ✅ **Business rules explicitly stated**  
 ✅ **Data validation requirements** included  
 ✅ **Security considerations** documented  
-✅ **Validates successfully** with `sdd test`
+✅ **All artifacts complete**: Check with `openspec status --change advanced-ecommerce-checkout`  
+✅ **Validates successfully**: Run `openspec validate --change advanced-ecommerce-checkout`
 
 ## Where to Write
 
-Edit the file **`spec.md`** in your exercise directory.
+After running `sdd init-exercise advanced/ecommerce-checkout`, edit:
+```
+~/sdd-exercises/openspec/changes/advanced-ecommerce-checkout/specs/spec.md
+```
 
 Run this to open it:
 ```bash
-# On macOS:
-open spec.md
-
-# Or use any editor:
-nano spec.md
-vim spec.md
-code spec.md  # VS Code
+cd ~/sdd-exercises/openspec/changes/advanced-ecommerce-checkout
+open specs/spec.md        # On macOS
+# Or: nano specs/spec.md
+# Or: code specs/spec.md  # VS Code
 ```  

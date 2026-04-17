@@ -45,24 +45,26 @@ Your specification for this exercise should describe:
 
 ## Definition of Done
 
-✅ **Written in `spec.md` file** (in this exercise folder)  
+✅ **Initialize OpenSpec change**: `sdd init-exercise basics/install-openspec`  
+✅ **Write in `openspec/changes/basics-install-openspec/specs/spec.md`**  
 ✅ **At least 3 scenarios** (install, verify, help)  
 ✅ **Installation process documented** with npm command  
 ✅ **Verification steps included** (--version output)  
 ✅ **Available commands listed** (--help output)  
-✅ **Validates successfully** with `sdd test`
+✅ **All artifacts complete**: Check with `openspec status --change basics-install-openspec`  
+✅ **Validates successfully**: Run `openspec validate --change basics-install-openspec`
 
 ## Where to Write
 
-Edit the file **`spec.md`** in your exercise directory.
+After running `sdd init-exercise basics/install-openspec`, edit:
+```
+~/sdd-exercises/openspec/changes/basics-install-openspec/specs/spec.md
+```
 
 Run this to open it:
 ```bash
-# On macOS:
-open spec.md
-
-# Or use any editor:
-nano spec.md
-vim spec.md
-code spec.md  # VS Code
+cd ~/sdd-exercises/openspec/changes/basics-install-openspec
+open specs/spec.md        # On macOS
+# Or: nano specs/spec.md
+# Or: code specs/spec.md  # VS Code
 ```

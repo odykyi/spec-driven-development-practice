@@ -54,26 +54,28 @@ The system SHALL validate uploaded files before processing.
 
 ## Definition of Done
 
-✅ **Written in `spec.md` file** (in this exercise folder)  
+✅ **Initialize OpenSpec change**: `sdd init-exercise patterns/file-upload`  
+✅ **Write in `openspec/changes/patterns-file-upload/specs/spec.md`**  
 ✅ **At least 8 scenarios** covering validation, progress, errors  
 ✅ **File type validation** (MIME types)  
 ✅ **Size limits enforced** (100MB max)  
 ✅ **Progress tracking** for uploads  
 ✅ **Virus scanning** before storage  
 ✅ **Storage quota** per user (1GB)  
-✅ **Validates successfully** with `sdd test`
+✅ **All artifacts complete**: Check with `openspec status --change patterns-file-upload`  
+✅ **Validates successfully**: Run `openspec validate --change patterns-file-upload`
 
 ## Where to Write
 
-Edit the file **`spec.md`** in your exercise directory.
+After running `sdd init-exercise patterns/file-upload`, edit:
+```
+~/sdd-exercises/openspec/changes/patterns-file-upload/specs/spec.md
+```
 
 Run this to open it:
 ```bash
-# On macOS:
-open spec.md
-
-# Or use any editor:
-nano spec.md
-vim spec.md
-code spec.md  # VS Code
+cd ~/sdd-exercises/openspec/changes/patterns-file-upload
+open specs/spec.md        # On macOS
+# Or: nano specs/spec.md
+# Or: code specs/spec.md  # VS Code
 ```

@@ -58,25 +58,27 @@ The system SHALL allow users to create accounts.
 
 ## Definition of Done
 
-✅ **Written in `spec.md` file** (in this exercise folder)  
+✅ **Initialize OpenSpec change**: `sdd init-exercise patterns/user-authentication`  
+✅ **Write in `openspec/changes/patterns-user-authentication/specs/spec.md`**  
 ✅ **At least 10 scenarios** covering the 12-step flow  
 ✅ **All 12 steps documented** with requirements  
 ✅ **Security requirements specified** (password rules, lockout)  
 ✅ **Session management defined** (creation, validation, expiry)  
 ✅ **Error scenarios included** (weak password, invalid credentials)  
-✅ **Validates successfully** with `sdd test`
+✅ **All artifacts complete**: Check with `openspec status --change patterns-user-authentication`  
+✅ **Validates successfully**: Run `openspec validate --change patterns-user-authentication`
 
 ## Where to Write
 
-Edit the file **`spec.md`** in your exercise directory.
+After running `sdd init-exercise patterns/user-authentication`, edit:
+```
+~/sdd-exercises/openspec/changes/patterns-user-authentication/specs/spec.md
+```
 
 Run this to open it:
 ```bash
-# On macOS:
-open spec.md
-
-# Or use any editor:
-nano spec.md
-vim spec.md
-code spec.md  # VS Code
+cd ~/sdd-exercises/openspec/changes/patterns-user-authentication
+open specs/spec.md        # On macOS
+# Or: nano specs/spec.md
+# Or: code specs/spec.md  # VS Code
 ```

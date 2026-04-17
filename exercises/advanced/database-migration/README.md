@@ -59,7 +59,8 @@ The system SHALL perform schema changes without downtime.
 
 ## Definition of Done
 
-✅ **Written in `spec.md` file** (in this exercise folder)  
+✅ **Initialize OpenSpec change**: `sdd init-exercise advanced/database-migration`  
+✅ **Write in `openspec/changes/advanced-database-migration/specs/spec.md`**  
 ✅ **At least 10 scenarios** covering different migration types  
 ✅ **All 4 migration types** (Schema, Data, Constraint, Index)  
 ✅ **Backward compatibility** required for all changes  
@@ -67,19 +68,20 @@ The system SHALL perform schema changes without downtime.
 ✅ **Zero-downtime pattern** (expand-contract)  
 ✅ **Safety checks** (dry-run, backups)  
 ✅ **Data integrity** verification before/after  
-✅ **Validates successfully** with `sdd test`
+✅ **All artifacts complete**: Check with `openspec status --change advanced-database-migration`  
+✅ **Validates successfully**: Run `openspec validate --change advanced-database-migration`
 
 ## Where to Write
 
-Edit the file **`spec.md`** in your exercise directory.
+After running `sdd init-exercise advanced/database-migration`, edit:
+```
+~/sdd-exercises/openspec/changes/advanced-database-migration/specs/spec.md
+```
 
 Run this to open it:
 ```bash
-# On macOS:
-open spec.md
-
-# Or use any editor:
-nano spec.md
-vim spec.md
-code spec.md  # VS Code
+cd ~/sdd-exercises/openspec/changes/advanced-database-migration
+open specs/spec.md        # On macOS
+# Or: nano specs/spec.md
+# Or: code specs/spec.md  # VS Code
 ```
