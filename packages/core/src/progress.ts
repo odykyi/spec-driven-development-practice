@@ -62,6 +62,10 @@ export interface ExerciseStatus {
 }
 
 export class ProgressManager {
+  // Failed attempts are kept here until the exercise passes, so they count
+  // towards `attempts` without marking the exercise as completed.
+  private pendingAttempts = new Map<string, ExerciseCompletion>();
+
   constructor(private progress: UserProgress) {}
 
   static create(userId: string): UserProgress {
@@ -92,7 +96,9 @@ export class ProgressManager {
     this.updateStreak(now);
 
     // Get or create completion record
-    let completion = this.progress.completedExercises.get(exerciseId);
+    const alreadyCompleted = this.progress.completedExercises.has(exerciseId);
+    let completion =
+      this.progress.completedExercises.get(exerciseId) ?? this.pendingAttempts.get(exerciseId);
     if (!completion) {
       completion = {
         exerciseId,
@@ -112,9 +118,14 @@ export class ProgressManager {
     if (submission.passed) {
       completion.completedAt = now;
       this.progress.completedExercises.set(exerciseId, completion);
-      
-      // Update metrics
-      this.updateMetrics(exerciseId, exerciseConfig);
+      this.pendingAttempts.delete(exerciseId);
+
+      // Update metrics once per exercise, not on every re-submission
+      if (!alreadyCompleted) {
+        this.updateMetrics(exerciseId, exerciseConfig);
+      }
+    } else if (!alreadyCompleted) {
+      this.pendingAttempts.set(exerciseId, completion);
     }
   }
 
@@ -195,15 +206,17 @@ export class ProgressManager {
       if (diffDays === 1) {
         // Consecutive day
         this.progress.currentStreak++;
-        if (this.progress.currentStreak > this.progress.longestStreak) {
-          this.progress.longestStreak = this.progress.currentStreak;
-        }
       } else if (diffDays > 1) {
         // Streak broken
         this.progress.currentStreak = 1;
       }
       // If same day, don't update streak
     }
+
+    this.progress.longestStreak = Math.max(
+      this.progress.longestStreak,
+      this.progress.currentStreak
+    );
     
     this.progress.lastActiveDate = now;
   }

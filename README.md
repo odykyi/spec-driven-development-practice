@@ -12,6 +12,7 @@ The SDD Training Platform provides:
 - **CLI Tool** - Work locally with offline support
 - **Web Platform** - Browser-based interface with in-browser editor
 - **Community Mentoring** - Get feedback from experienced practitioners
+- **AI Spec Agent & Eval** - An LLM agent that writes specs for every exercise using the validator as a tool, a grounded rubric judge, and an eval harness with judge calibration ([packages/agent](./packages/agent/README.md))
 
 ## Quick Start
 
@@ -258,6 +259,7 @@ sdd-training/
 ├── packages/
 │   ├── core/           # Validation engine and shared types
 │   ├── cli/            # Command-line interface
+│   ├── agent/          # LLM spec-authoring agent, rubric judge, eval harness
 │   └── web/            # Next.js web platform
 ├── exercises/          # Exercise definitions
 ├── tracks/             # Track configurations
@@ -292,6 +294,21 @@ pnpm --filter @sdd-training/cli start
 # Web package
 pnpm --filter @sdd-training/web dev
 ```
+
+## AI Spec-Authoring Agent
+
+`packages/agent` measures how well language models write specs for these exercises, and how
+much tool feedback helps. The agent drafts a spec, then the platform's validator, a linter and
+an LLM judge (which must quote the spec as evidence) review it; their findings drive revisions.
+
+```bash
+pnpm --filter @sdd-training/core --filter @sdd-training/agent build
+node packages/agent/dist/cli.js solve patterns/state-machine   # one exercise
+pnpm eval                                                        # every exercise, report in packages/agent/eval/results
+pnpm calibrate                                                   # judge vs hand-labelled specs
+```
+
+See [packages/agent/README.md](./packages/agent/README.md) for the design and the latest results.
 
 ## Contributing
 

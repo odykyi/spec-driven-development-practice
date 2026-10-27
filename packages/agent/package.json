@@ -1,0 +1,29 @@
+{
+  "name": "@sdd-training/agent",
+  "version": "0.1.0",
+  "description": "LLM spec-authoring agent, grounded rubric judge and eval harness for the SDD training platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "sdd-agent": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src/**/*.ts",
+    "eval": "node dist/cli.js eval",
+    "calibrate": "node dist/cli.js calibrate"
+  },
+  "dependencies": {
+    "@sdd-training/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.16.0",
+    "@typescript-eslint/parser": "^6.16.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "vitest": "^1.1.0"
+  }
+}

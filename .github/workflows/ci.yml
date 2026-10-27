@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Build core and agent
+        run: pnpm --filter @sdd-training/core --filter @sdd-training/agent build
+      - name: Test core and agent
+        run: pnpm --filter @sdd-training/core --filter @sdd-training/agent test
+      - name: Lint agent
+        run: pnpm --filter @sdd-training/agent lint
+      - name: Agent CLI smoke test (no model call)
+        run: node packages/agent/dist/cli.js lint packages/agent/eval/fixtures/hello-world/complete.md
