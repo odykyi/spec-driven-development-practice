@@ -1,0 +1,226 @@
+[
+  {
+    "judge": "keyword baseline",
+    "metrics": {
+      "tp": 26,
+      "fp": 8,
+      "tn": 6,
+      "fn": 2,
+      "n": 42,
+      "accuracy": 0.7619047619047619,
+      "precision": 0.7647058823529411,
+      "recall": 0.9285714285714286,
+      "f1": 0.8387096774193549,
+      "kappa": 0.39999999999999997
+    },
+    "fixtures": [
+      {
+        "file": "hello-world/complete.md",
+        "exerciseId": "basics/hello-world",
+        "disagreements": [
+          {
+            "id": "proper-when-then-format-for-all",
+            "gold": true,
+            "predicted": false,
+            "reason": "1/3 keywords present"
+          }
+        ],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "hello-world/weak-modal-one-scenario.md",
+        "exerciseId": "basics/hello-world",
+        "disagreements": [
+          {
+            "id": "proper-when-then-format-for-all",
+            "gold": true,
+            "predicted": false,
+            "reason": "1/3 keywords present"
+          }
+        ],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "hello-world/unformatted-clauses.md",
+        "exerciseId": "basics/hello-world",
+        "disagreements": [],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "state-machine/complete.md",
+        "exerciseId": "patterns/state-machine",
+        "disagreements": [],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "state-machine/no-timing-no-invariant.md",
+        "exerciseId": "patterns/state-machine",
+        "disagreements": [
+          {
+            "id": "timing-requirements-specified-for-each-state",
+            "gold": false,
+            "predicted": true,
+            "reason": "1/2 keywords present"
+          },
+          {
+            "id": "invariants-documented",
+            "gold": false,
+            "predicted": true,
+            "reason": "3/5 keywords present"
+          }
+        ],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "state-machine/topic-only.md",
+        "exerciseId": "patterns/state-machine",
+        "disagreements": [
+          {
+            "id": "timing-requirements-specified-for-each-state",
+            "gold": false,
+            "predicted": true,
+            "reason": "2/2 keywords present"
+          },
+          {
+            "id": "invariants-documented",
+            "gold": false,
+            "predicted": true,
+            "reason": "5/5 keywords present"
+          }
+        ],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "api-rate-limiting/complete.md",
+        "exerciseId": "patterns/api-rate-limiting",
+        "disagreements": [],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "api-rate-limiting/no-headers-no-burst.md",
+        "exerciseId": "patterns/api-rate-limiting",
+        "disagreements": [
+          {
+            "id": "rate-limit-headers-documented",
+            "gold": false,
+            "predicted": true,
+            "reason": "2/4 keywords present"
+          },
+          {
+            "id": "burst-handling-specified",
+            "gold": false,
+            "predicted": true,
+            "reason": "2/4 keywords present"
+          }
+        ],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "api-rate-limiting/out-of-scope.md",
+        "exerciseId": "patterns/api-rate-limiting",
+        "disagreements": [
+          {
+            "id": "rate-limit-headers-documented",
+            "gold": false,
+            "predicted": true,
+            "reason": "4/4 keywords present"
+          },
+          {
+            "id": "burst-handling-specified",
+            "gold": false,
+            "predicted": true,
+            "reason": "4/4 keywords present"
+          }
+        ],
+        "ungroundedClaims": 0
+      }
+    ],
+    "ungroundedClaims": 0
+  },
+  {
+    "judge": "LLM judge (claude-haiku-5-5)",
+    "metrics": {
+      "tp": 26,
+      "fp": 0,
+      "tn": 14,
+      "fn": 2,
+      "n": 42,
+      "accuracy": 0.9523809523809523,
+      "precision": 1,
+      "recall": 0.9285714285714286,
+      "f1": 0.962962962962963,
+      "kappa": 0.8965517241379309
+    },
+    "fixtures": [
+      {
+        "file": "hello-world/complete.md",
+        "exerciseId": "basics/hello-world",
+        "disagreements": [],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "hello-world/weak-modal-one-scenario.md",
+        "exerciseId": "basics/hello-world",
+        "disagreements": [],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "hello-world/unformatted-clauses.md",
+        "exerciseId": "basics/hello-world",
+        "disagreements": [],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "state-machine/complete.md",
+        "exerciseId": "patterns/state-machine",
+        "disagreements": [],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "state-machine/no-timing-no-invariant.md",
+        "exerciseId": "patterns/state-machine",
+        "disagreements": [],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "state-machine/topic-only.md",
+        "exerciseId": "patterns/state-machine",
+        "disagreements": [],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "api-rate-limiting/complete.md",
+        "exerciseId": "patterns/api-rate-limiting",
+        "disagreements": [
+          {
+            "id": "at-least-6-scenarios-covering-different",
+            "gold": true,
+            "predicted": false,
+            "reason": "The spec has 6 '#### Scenario:' headings, but they cover only anonymous and authenticated clients at minute/day/burst cases; there is no scenario for a distinct tier beyond these two and no hour or second-window scenarios, so the 'different user tiers and limits' coverage is incomplete."
+          }
+        ],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "api-rate-limiting/no-headers-no-burst.md",
+        "exerciseId": "patterns/api-rate-limiting",
+        "disagreements": [
+          {
+            "id": "at-least-6-scenarios-covering-different",
+            "gold": true,
+            "predicted": false,
+            "reason": "The spec has 5 scenarios ('Counter increments', 'Anonymous within limit', 'Anonymous over minute limit', 'Authenticated within hourly limit', 'Authenticated over daily limit', 'Retry-After value' — counting six headings total, but only the tier/limit-focused ones cover user tiers and limits, and no authenticated per-second/per-minute or anonymous per-day/per-hour scenarios exist, so fewer than 6 distinct tier-and-limit scenarios are present)."
+          }
+        ],
+        "ungroundedClaims": 0
+      },
+      {
+        "file": "api-rate-limiting/out-of-scope.md",
+        "exerciseId": "patterns/api-rate-limiting",
+        "disagreements": [],
+        "ungroundedClaims": 0
+      }
+    ],
+    "ungroundedClaims": 0
+  }
+]

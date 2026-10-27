@@ -10,7 +10,9 @@
     "format": "prettier --write .",
     "dev": "pnpm --filter @sdd-training/web dev",
     "cli": "pnpm --filter @sdd-training/cli start",
-    "install-openspec": "node install-openspec.js"
+    "install-openspec": "node install-openspec.js",
+    "eval": "pnpm --filter @sdd-training/agent eval",
+    "calibrate": "pnpm --filter @sdd-training/agent calibrate"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

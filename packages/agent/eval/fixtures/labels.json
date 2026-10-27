@@ -1,0 +1,107 @@
+[
+  {
+    "file": "hello-world/complete.md",
+    "exerciseId": "basics/hello-world",
+    "description": "Meets every criterion, plus an edge case.",
+    "labels": {
+      "at-least-2-scenarios": true,
+      "uses-shall-for-mandatory-requirements": true,
+      "proper-when-then-format-for-all": true
+    }
+  },
+  {
+    "file": "hello-world/weak-modal-one-scenario.md",
+    "exerciseId": "basics/hello-world",
+    "description": "Uses 'should' instead of SHALL and has only the personalised scenario.",
+    "labels": {
+      "at-least-2-scenarios": false,
+      "uses-shall-for-mandatory-requirements": false,
+      "proper-when-then-format-for-all": true
+    }
+  },
+  {
+    "file": "hello-world/unformatted-clauses.md",
+    "exerciseId": "basics/hello-world",
+    "description": "Right scenarios and SHALL, but clauses are plain '- When' lines the parser ignores.",
+    "labels": {
+      "at-least-2-scenarios": true,
+      "uses-shall-for-mandatory-requirements": true,
+      "proper-when-then-format-for-all": false
+    }
+  },
+  {
+    "file": "state-machine/complete.md",
+    "exerciseId": "patterns/state-machine",
+    "description": "States, timed triggers, durations, invariant and all four scenario kinds.",
+    "labels": {
+      "at-least-4-scenarios": true,
+      "all-3-states-defined": true,
+      "state-transitions-documented-with-triggers": true,
+      "timing-requirements-specified-for-each-state": true,
+      "invariants-documented": true
+    }
+  },
+  {
+    "file": "state-machine/no-timing-no-invariant.md",
+    "exerciseId": "patterns/state-machine",
+    "description": "Event-driven transitions and all scenarios, but no durations and no invariant.",
+    "labels": {
+      "at-least-4-scenarios": true,
+      "all-3-states-defined": true,
+      "state-transitions-documented-with-triggers": true,
+      "timing-requirements-specified-for-each-state": false,
+      "invariants-documented": false
+    }
+  },
+  {
+    "file": "state-machine/topic-only.md",
+    "exerciseId": "patterns/state-machine",
+    "description": "Names timing and the invariant only to defer them; two vague scenarios.",
+    "labels": {
+      "at-least-4-scenarios": false,
+      "all-3-states-defined": true,
+      "state-transitions-documented-with-triggers": false,
+      "timing-requirements-specified-for-each-state": false,
+      "invariants-documented": false
+    }
+  },
+  {
+    "file": "api-rate-limiting/complete.md",
+    "exerciseId": "patterns/api-rate-limiting",
+    "description": "Counting, four windows, two tiers, headers, 429 with Retry-After, token-bucket burst.",
+    "labels": {
+      "at-least-6-scenarios-covering-different": true,
+      "request-counting-mechanism-specified": true,
+      "time-windows-defined": true,
+      "rate-limit-headers-documented": true,
+      "429-behavior-defined-when-limits-exceeded": true,
+      "burst-handling-specified": true
+    }
+  },
+  {
+    "file": "api-rate-limiting/no-headers-no-burst.md",
+    "exerciseId": "patterns/api-rate-limiting",
+    "description": "Solid counting, windows, tiers and 429, but no headers and no burst handling.",
+    "labels": {
+      "at-least-6-scenarios-covering-different": true,
+      "request-counting-mechanism-specified": true,
+      "time-windows-defined": true,
+      "rate-limit-headers-documented": false,
+      "429-behavior-defined-when-limits-exceeded": true,
+      "burst-handling-specified": false
+    }
+  },
+  {
+    "file": "api-rate-limiting/out-of-scope.md",
+    "exerciseId": "patterns/api-rate-limiting",
+    "description": "Names the headers and the 20 req/sec burst only to declare them out of scope; 3 scenarios.",
+    "labels": {
+      "at-least-6-scenarios-covering-different": false,
+      "request-counting-mechanism-specified": true,
+      "time-windows-defined": true,
+      "rate-limit-headers-documented": false,
+      "429-behavior-defined-when-limits-exceeded": true,
+      "burst-handling-specified": false
+    }
+  }
+]
