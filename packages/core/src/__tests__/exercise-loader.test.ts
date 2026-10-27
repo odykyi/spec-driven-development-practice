@@ -9,8 +9,9 @@ describe('ExerciseLoader', () => {
   let loader: ExerciseLoader;
 
   beforeEach(async () => {
-    // Create test directory structure
-    await fs.mkdir(path.join(testBasePath, 'test-exercise', '.meta'), { recursive: true });
+    // Exercises live at <track>/<exercise>, matching exercises/basics/hello-world
+    const exerciseDir = path.join(testBasePath, 'test', 'test-exercise');
+    await fs.mkdir(path.join(exerciseDir, '.meta'), { recursive: true });
     
     // Create test exercise config
     const config = {
@@ -21,13 +22,13 @@ describe('ExerciseLoader', () => {
       validationRules: ['requirements-present'],
     };
     await fs.writeFile(
-      path.join(testBasePath, 'test-exercise', '.meta', 'config.yml'),
+      path.join(exerciseDir, '.meta', 'config.yml'),
       yaml.stringify(config)
     );
 
     // Create test README
     await fs.writeFile(
-      path.join(testBasePath, 'test-exercise', 'README.md'),
+      path.join(exerciseDir, 'README.md'),
       '# Test Exercise\n\nThis is a test.'
     );
 
