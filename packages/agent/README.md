@@ -81,6 +81,35 @@ node packages/agent/dist/cli.js eval --provider openai-compatible --model qwen3:
 
 ## Results
 
+### Agent eval
+
+All 10 exercises, 1 trial each, up to 3 iterations. Claude Haiku 5.5 was both author and judge,
+through the Claude CLI on 2026-10-27
+([full report](./eval/results/2026-10-27-claude-cli-claude-haiku-5-5.md),
+[raw runs](./eval/results/2026-10-27-claude-cli-claude-haiku-5-5.json)):
+
+| Metric | First draft (zero-shot) | After revision loop |
+|---|---|---|
+| Passes the platform validator | 100% | 100% |
+| Accepted (validator + lint + judge) | 30% | 90% |
+| Judge coverage of Definition of Done | 93% | 97% |
+| Mean iterations | 1 | 2.0 |
+
+- Every first draft passed the structural validator, so the validator alone cannot tell good
+  specs from weak ones. The extra tools are what drove revisions: 7 of 10 first drafts had
+  lint errors, and 3 had uncovered criteria.
+- All 25 first-draft lint errors were `duplicate-scenario`: scenarios with identical WHEN
+  clauses. Some of these pairs differed only in GIVEN/AND lines, which the core parser does
+  not read. So the rule pushes the distinguishing condition into WHEN, where tests and the
+  validator can see it. It is strict, not always wrong, and worth relaxing once the parser
+  reads GIVEN.
+- The one failure is `advanced/ecommerce-checkout` (20-step flow, 25 scenarios). Its second
+  draft broke the validator. Its third reached 67% coverage, still missing several of the 20
+  steps, and the judge left one criterion unanswered. Long exercises need a higher judge token
+  limit or per-section judging.
+- The run used 294k input and 329k output tokens, about 143 s per exercise. The Claude CLI
+  reported a list-price cost of $11.10.
+
 ### Judge calibration
 
 42 hand-labelled coverage decisions across 9 specs (`eval/fixtures/labels.json`), judged by
